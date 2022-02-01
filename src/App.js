@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import LeptListView from './views/LeptList/LeptListView';
 
 function App() {
@@ -8,6 +8,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <LeptListView />
+        <Route exact path="/">
+          <Link to="/">Home</Link>
+        </Route>
       </BrowserRouter>
     </div>
   );

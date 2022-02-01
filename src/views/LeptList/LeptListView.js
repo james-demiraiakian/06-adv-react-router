@@ -25,7 +25,7 @@ export default function LeptListView() {
       {leptList.results.map((lept) => {
         return (
           <Link key={lept.taxon.id} to={`/lept/${lept.taxon.id}`}>
-            <LeptListComp lept={lept} />;
+            <LeptListComp lept={lept} />
           </Link>
         );
       })}
