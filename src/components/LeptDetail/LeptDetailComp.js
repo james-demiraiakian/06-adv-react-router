@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import './LeptDetailComp.css';
 
 export default function LeptDetailComp({ leptDetail }) {
   const { english_common_name, name, wikipedia_url, extinct } = leptDetail.results[0].taxon;
@@ -15,7 +16,9 @@ export default function LeptDetailComp({ leptDetail }) {
       <button onClick={goHome}>Home</button>
       <h1>{english_common_name}</h1>
       <img src={medium_url} />
-      <a href={wikipedia_url}>{name}</a>
+      <a className="buttermoth-link" href={wikipedia_url}>
+        {name}
+      </a>
       {extinct ? <div>Extinct</div> : <div>Not Extinct</div>}
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LeptListComp from '../../components/LeptList/LeptListComp';
 import { fetchLept } from '../../services/fetch';
+import './LeptListView.css';
 
 export default function LeptListView() {
   const [leptList, setLeptList] = useState([]);
@@ -39,13 +40,15 @@ export default function LeptListView() {
       <button disabled={leptList.length === 500} onClick={nextPage}>
         Next
       </button>
-      {leptList.results.map((lept) => {
-        return (
-          <Link key={lept.taxon.id} to={`/lept/${lept.taxon.id}`}>
-            <LeptListComp lept={lept} />
-          </Link>
-        );
-      })}
+      <div className="buttermoth-box">
+        {leptList.results.map((lept) => {
+          return (
+            <Link key={lept.taxon.id} to={`/lept/${lept.taxon.id}`}>
+              <LeptListComp lept={lept} />
+            </Link>
+          );
+        })}
+      </div>
       <button disabled={currentPage === 1} onClick={previousPage}>
         Back
       </button>
