@@ -7,6 +7,14 @@ import LeptDetailView from '../LeptDetail/LeptDetailView';
 export default function LeptListView() {
   const [leptList, setLeptList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const previousPage = async () => {
+    if (currentPage !== 1) {
+      setCurrentPage((prevState) => --prevState);
+      setLoading(true);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +37,7 @@ export default function LeptListView() {
           </Link>
         );
       })}
-      <Route to={`/lept/:leptId`}>
+      <Route to={`/lept/:leptID`}>
         <LeptDetailView />
       </Route>
     </div>

@@ -13,3 +13,11 @@ export async function fetchLeptDetail(id) {
   const respJson = await resp.json();
   return respJson;
 }
+
+export async function getPage(page) {
+  const resp = await fetch(
+    `https://api.inaturalist.org/v1/observations/species_counts?verifiable=true&spam=false&taxon_id=47157&locale=en-US&page=${page}`
+  );
+  const respJson = await resp.json();
+  return respJson;
+}
