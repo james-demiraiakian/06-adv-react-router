@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Route } from 'react-router-dom';
 import LeptListComp from '../../components/LeptList/LeptListComp';
-import { fetchLept } from '../../services/fetch';
+import { fetchLept, getPage } from '../../services/fetch';
 import LeptDetailView from '../LeptDetail/LeptDetailView';
 
 export default function LeptListView() {
@@ -13,6 +13,8 @@ export default function LeptListView() {
     if (currentPage !== 1) {
       setCurrentPage((prevState) => --prevState);
       setLoading(true);
+      const resp = await getPage(currentPage);
+      setLeptList(resp);
     }
   };
 
