@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LeptListComp from '../../components/LeptList/LeptListComp';
 import { fetchLept } from '../../services/fetch';
-import LeptDetailView from '../LeptDetail/LeptDetailView';
 
 export default function LeptListView() {
   const [leptList, setLeptList] = useState([]);
@@ -47,9 +46,6 @@ export default function LeptListView() {
           </Link>
         );
       })}
-      <Route to={`/lept/:leptID`}>
-        <LeptDetailView />
-      </Route>
       <button disabled={currentPage === 1} onClick={previousPage}>
         Back
       </button>

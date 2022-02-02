@@ -6,6 +6,7 @@ import LeptDetailView from './views/LeptDetail/LeptDetailView';
 function App() {
   return (
     <div className="App">
+      <h1>ButterMoths</h1>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
