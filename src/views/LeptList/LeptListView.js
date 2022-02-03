@@ -34,12 +34,15 @@ export default function LeptListView() {
 
   return (
     <div>
-      <button disabled={currentPage === 1} onClick={previousPage}>
-        Back
-      </button>
-      <button disabled={leptList.length === 500} onClick={nextPage}>
-        Next
-      </button>
+      <div className="pages">
+        <button disabled={currentPage === 1} onClick={previousPage}>
+          Back
+        </button>
+        <div className="page-disp">Page {currentPage}</div>
+        <button disabled={leptList.length === 500} onClick={nextPage}>
+          Next
+        </button>
+      </div>
       <div className="buttermoth-box">
         {leptList.results.map((lept) => {
           return (
@@ -49,12 +52,15 @@ export default function LeptListView() {
           );
         })}
       </div>
-      <button disabled={currentPage === 1} onClick={previousPage}>
-        Back
-      </button>
-      <button disabled={leptList.length === 500} onClick={nextPage}>
-        Next
-      </button>
+      <div className="pages">
+        <button disabled={currentPage === 1} onClick={previousPage}>
+          Back
+        </button>
+        <div className="page-disp">Page {currentPage}</div>
+        <button disabled={leptList.length === 500} onClick={nextPage}>
+          Next
+        </button>
+      </div>
     </div>
   );
 }
