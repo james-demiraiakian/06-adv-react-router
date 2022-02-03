@@ -5,7 +5,7 @@ import LeptDetailComp from '../../components/LeptDetail/LeptDetailComp';
 import { fetchLeptDetail } from '../../services/fetch';
 
 export default function LeptDetailView() {
-  const [leptDetail, setLeptDetail] = useState([]);
+  const [leptDetail, setLeptDetail] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { pathname } = useLocation();
