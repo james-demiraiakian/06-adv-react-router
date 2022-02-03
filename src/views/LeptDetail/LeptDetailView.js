@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import LeptDetailComp from '../../components/LeptDetail/LeptDetailComp';
 import { fetchLeptDetail } from '../../services/fetch';
 
