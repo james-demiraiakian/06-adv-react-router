@@ -1,0 +1,12 @@
+.buttermoth-stick {
+  display: flex;
+  width: 300px;
+  border: 1px solid black;
+  margin: 5px;
+  align-items: center;
+}
+
+.link {
+  margin-left: 10px;
+  text-decoration-color: none;
+}
