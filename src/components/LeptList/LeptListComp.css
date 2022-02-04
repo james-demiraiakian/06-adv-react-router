@@ -1,12 +1,25 @@
 .buttermoth-stick {
   display: flex;
   width: 300px;
-  border: 1px solid black;
+  border: 5px solid #2b9348;
+  border-radius: 10px;
   margin: 5px;
   align-items: center;
+  color: #240046;
+  background-color: #9eb7e5;
+  gap: 10px;
 }
 
-.link {
+.buttermoth-stick:hover {
+  box-shadow: 3px 3px 8px #1f6d35;
+}
+
+a {
   margin-left: 10px;
   text-decoration-color: none;
+  text-decoration: none;
+}
+
+.buttermoth-stick-image {
+  border-radius: 5px;
 }

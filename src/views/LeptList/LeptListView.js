@@ -46,6 +46,9 @@ export default function LeptListView() {
       </div>
       <div className="search">
         Search returns results that match the input AND related results, as determined by the API.
+        <br />
+        There may be some entries that have missing or no data included, or that may be duplicates.
+        This is due to the data the API provides.
       </div>
       <div className="search">
         <input
@@ -58,7 +61,7 @@ export default function LeptListView() {
       <div className="buttermoth-box">
         {leptList.results.map((lept) => {
           return (
-            <Link key={lept.taxon.id} to={`/lept/${lept.taxon.id}`}>
+            <Link className="link" key={lept.taxon.id} to={`/lept/${lept.taxon.id}`}>
               <LeptListComp lept={lept} />
             </Link>
           );
