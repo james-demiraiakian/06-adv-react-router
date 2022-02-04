@@ -1,17 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', async () => {
+test('Tests user interaction', async () => {
   render(
     <MemoryRouter>
       <App />
     </MemoryRouter>
   );
 
+  await waitForElementToBeRemoved(() => screen.getByText('LOADING...'));
+
   const listImages = await screen.findAllByRole('img');
-  expect(listImages.length).toBe(500);
+  expect(listImages.length).toBe(501);
 
   userEvent.click(listImages[8]);
 
