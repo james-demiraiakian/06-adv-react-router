@@ -12,7 +12,7 @@ export default function LeptDetailComp({ leptDetail }) {
   }
 
   return (
-    <div>
+    <div className="buttermoth-details">
       <button onClick={goHome}>Home</button>
       <h1>{english_common_name}</h1>
       <img src={medium_url} />
