@@ -6,3 +6,7 @@
   justify-content: center;
   color: azure;
 }
+
+img {
+  max-width: 100vw;
+}
