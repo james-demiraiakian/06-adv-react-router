@@ -8,6 +8,7 @@ export default function LeptListView() {
   const [leptList, setLeptList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState('');
 
   const previousPage = () => {
     if (currentPage !== 1) {
@@ -23,12 +24,12 @@ export default function LeptListView() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const resp = await fetchLept(currentPage);
+      const resp = await fetchLept(currentPage, search);
       setLeptList(resp);
       setLoading(false);
     };
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   if (loading) return <h1>LOADING...</h1>;
 
@@ -39,9 +40,20 @@ export default function LeptListView() {
           Back
         </button>
         <div className="page-disp">Page {currentPage}</div>
-        <button disabled={leptList.length === 500} onClick={nextPage}>
+        <button disabled={leptList.length < 500} onClick={nextPage}>
           Next
         </button>
+      </div>
+      <div className="search">
+        Search returns results that match the input AND related results, as determined by the API.
+      </div>
+      <div className="search">
+        <input
+          placeholder="Search"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
       <div className="buttermoth-box">
         {leptList.results.map((lept) => {

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 import LeptDetailComp from './LeptDetailComp';
 
 const leptDetail = {
@@ -56,15 +56,17 @@ const leptDetail = {
 
 test('Should render the LeptListComp elements', async () => {
   render(
-    <MemoryRouter>
-      <LeptDetailComp leptDetail={leptDetail} />
+    <MemoryRouter initialEntries={['/lept/52925']}>
+      <Route path="/lept/:leptID">
+        <LeptDetailComp leptDetail={leptDetail} />
+      </Route>
     </MemoryRouter>
   );
 
   const image = await screen.findByRole('img');
   const commonName = await screen.findByText(/pearl crescent/i);
   const name = await screen.findByText(/phyciodes tharos/i);
-  const wiki = await screen.findByRole('link', { name: /phyciodes tharos/i });
+  const wiki = await screen.findByRole('link');
 
   expect(image).toBeInTheDocument();
   expect(commonName).toBeInTheDocument();
